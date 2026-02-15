@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .card {
+        display: inline-block;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: rgb(7, 7, 7);
+        border: none;
+        border-radius: 5px;
+      }
+      li {
+        list-style: none;
+        font-size: 18px;
+
+        display: flex;
+        justify-content: space-between; /* pushes button to far right */
+        align-items: center;
+        margin-top: 8px;
+      }
+
+      button#button2 {
+        margin-left: 120px;
+        margin-top: 5px;
+        background-color: #f44336;
+        color: white;
+        font-size: 12px;
+        border: none;
+        border-radius: 5px;
+        width: 60px;
+        padding: 5px 0; /* override the 10px 20px */
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <ul id="list"></ul>
+        <input type="text" id="itemInput" placeholder="Add new item" />
+        <button id="addButton">Add</button>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("addButton")
+        .addEventListener("click", function () {
+          let newItem = document.getElementById("itemInput").value;
+          if (newItem !== "") {
+            let btnn = document.createElement("button");
+            btnn.textContent = "Remove";
+            btnn.id = "button2";
+
+            let item = document.createElement("li");
+            item.textContent = newItem;
+            item.style.textDecoration = "none";
+            item.appendChild(btnn);
+            document.getElementById("list").appendChild(item);
+            btnn.addEventListener("click", function () {
+              item.remove();
+              btnn.remove();
+            });
+          }
+        });
+    </script>
+  </body>
+</html>
