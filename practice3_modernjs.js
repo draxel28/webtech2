@@ -29,3 +29,22 @@ let youngestAge = (users) => {
 };
 
 console.log(youngestAge(users)); //Output: 17
+
+//Getting names of the products------------------------
+
+const products = [
+  { id: 1, name: "Phone", price: 500 },
+  { id: 2, name: "Laptop", price: 1200 },
+  { id: 3, name: "Keyboard", price: 100 },
+];
+
+let allNames = (products) => {
+  let result = products
+    .filter((prod) => prod.name)
+    .map((prod) => prod.name)
+    .toString();
+
+  return result;
+};
+
+console.log(allNames(products)); //Output: "Phone, Laptop, Keyboard"
