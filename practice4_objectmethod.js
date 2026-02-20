@@ -176,3 +176,52 @@ const newCart = [...Cart, { name: "Coke", price: 50, quantity: 1 }]; //adding ne
 
 console.log(newCart);
 console.log(totalItems(Cart));
+
+// another practice of adding new object without mutating
+
+const users = [
+  {
+    name: "Drexel",
+    hobbies: ["coding", "running"],
+    address: { city: "Ternate", zip: 4105 },
+  },
+  {
+    name: "Marco",
+    hobbies: ["basketball", "music"],
+    address: { city: "Manila", zip: 1000 },
+  },
+];
+
+let addedHobbies = (users) => {
+  return users.map((user) => {
+    return user.name === "Drexel"
+      ? { ...user, hobbies: [...user.hobbies, "Cracking"] }
+      : user;
+  });
+}; // add object
+
+let changeAddress = (users) => {
+  return users.map((user) => {
+    return user.name === "Marco"
+      ? {
+          ...user,
+          address: { city: "cebu", zip: 1000 },
+        }
+      : user;
+  });
+}; // change object
+
+let removeHobbies = (users) => {
+  return users.map((user) => {
+    return user.name === "Drexel"
+      ? {
+          ...user,
+          hobbies: ["coding"],
+        }
+      : user;
+  });
+}; // remove object
+
+console.log(removeHobbies(users));
+console.log(changeAddress(users));
+console.log(addedHobbies(users));
