@@ -5,6 +5,14 @@ const student = {
   isEnrolled: true,
 };
 
+let names = (student) => {
+  const { isEnrolled, ...newstudent } = student; // uses for react
+  // delete student.isEnrolled; // uses for vanilla js
+  // return student
+  return newstudent;
+};
+console.log(names(student));
+
 // accessing the object and turning to a string from Object to array then use forEach() which is an array method then turning it into a string using backticks
 
 const phone = {
