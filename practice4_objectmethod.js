@@ -5,14 +5,6 @@ const student = {
   isEnrolled: true,
 };
 
-let names = (student) => {
-  const { isEnrolled, ...newstudent } = student; // uses for react
-  // delete student.isEnrolled; // uses for vanilla js
-  // return student
-  return newstudent;
-};
-console.log(names(student));
-
 // accessing the object and turning to a string from Object to array then use forEach() which is an array method then turning it into a string using backticks
 
 const phone = {
@@ -225,3 +217,41 @@ let removeHobbies = (users) => {
 console.log(removeHobbies(users));
 console.log(changeAddress(users));
 console.log(addedHobbies(users));
+
+// reastic approach
+
+const orders = [
+  { id: 1, customer: "Ana", total: 500, status: "paid" },
+  { id: 2, customer: "Ben", total: 1500, status: "pending" },
+  { id: 3, customer: "Cara", total: 700, status: "paid" },
+  { id: 4, customer: "Dan", total: 2000, status: "pending" },
+];
+
+let paidCustomers = (orders) => {
+  return orders
+    .filter((value) => value.status === "paid")
+    .map((user) => user.customer);
+};
+
+let totalRev = (orders) => {
+  return orders
+    .filter((value) => value.status === "paid")
+    .reduce((total, curr) => total + curr.total, 0);
+};
+
+let bestCustomer = (orders) => {
+  return orders
+    .filter((value) => value.total >= 1000)
+    .map((user) => user.customer);
+};
+
+let pendingOrders = (orders) => {
+  return orders
+    .filter((value) => value.status === "pending")
+    .reduce((total, curr) => total + 1, 0);
+};
+
+console.log(pendingOrders(orders));
+console.log(paidCustomers(orders));
+console.log(totalRev(orders));
+console.log(bestCustomer(orders));
