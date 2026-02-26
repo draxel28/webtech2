@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <!-- Toggle Effect changing the inner HTML-->
+    <!-- <textarea name="res" id="result"></textarea>
+
+    <button id="btn">Click Me</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let result = document.getElementById("result");
+
+      btn.addEventListener("click", () => {
+        result.innerHTML =
+          result.innerHTML === ""
+            ? "Hello World"
+            : result.innerHTML === "Hello World"
+              ? "I love coding"
+              : "";
+      });
+    </script>
+-->
+
+    <!--Toggle effect changing the btn color and innerhtml-->
+    <button
+      id="result"
+      style="
+        background-color: red;
+        color: white;
+        min-width: 50px;
+        border-radius: 4px;
+      "
+    >
+      OFF
+    </button>
+
+    <script>
+      let btn = document.getElementById("result");
+      btn.addEventListener("click", () => {
+        btn.innerHTML = btn.innerHTML === "OFF" ? "ON" : "OFF";
+
+        btn.innerHTML === "OFF"
+          ? (btn.style.backgroundColor = "Red")
+          : btn.innerHTML === "ON"
+            ? (btn.style.backgroundColor = "Blue")
+            : (btn.style.backgroundColor = "Red");
+      });
+    </script>
+  </body>
+</html>
