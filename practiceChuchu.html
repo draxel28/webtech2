@@ -1,6 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <style>
+      .wrap {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100vh;
+        background-color: whitesmoke;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .card {
+        background-color: thistle;
+        padding: 10px;
+        border-radius: 10px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .card1 {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .card2 {
+        margin-top: 20px;
+      }
+      textarea {
+        height: 100px;
+        width: 200px;
+        border-radius: 10px;
+      }
+      .buttWrap {
+        gap: 2px;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+    </style>
+  </head>
   <body>
     <!-- <div class="card">
       <label for="radius">Radius: </label>
@@ -60,7 +101,7 @@
       document.getElementById("result").innerHTML = `the sum is ${res}`;
     </script>
 -->
-    <label for="num1">Enter Num1: </label>
+    <!----<label for="num1">Enter Num1: </label>
     <input type="number" id="num1" /> <br /><br />
     <label for="num2">Enter Num2: </label>
     <input type="number" id="num2" /> <br /><br />
@@ -115,6 +156,49 @@
                   ))
                 : (document.getElementById("result").innerHTML =
                     "Invalid Operator");
+      };
+    </script>
+  -->
+
+    <div class="wrap">
+      <h1>
+        Circle Area <br />
+        Calculator
+      </h1>
+      <div class="card">
+        <div class="card1">
+          <label for="length">Radius:</label>
+          <input type="number" id="length" />
+          <label for="width">Width:</label>
+          <!-- <input type="number" id="width" />-->
+          <div class="buttWrap">
+            <button onclick="calculateArea()">Calculate Area</button>
+            <button onclick="clearFields()">Clear Fields</button>
+          </div>
+        </div>
+        <div class="card2">
+          <textarea name="res" id="result" disabled></textarea>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let clearFields = () => {
+        return (
+          (document.getElementById("result").innerHTML = " "),
+          (document.getElementById("length").value = " ")
+        );
+      };
+
+      let calculateArea = () => {
+        let length = document.getElementById("length").value;
+
+        return !length
+          ? (result.innerHTML = "Please enter valid numbers")
+          : (document.getElementById("result").innerHTML = (
+              Math.PI *
+              parseFloat(length) ** 2
+            ).toFixed(2));
       };
     </script>
   </body>
