@@ -23,6 +23,8 @@
 -->
 
     <!--Toggle effect changing the btn color and innerhtml-->
+
+    <!---
     <button
       id="result"
       style="
@@ -45,6 +47,89 @@
           : btn.innerHTML === "ON"
             ? (btn.style.backgroundColor = "Blue")
             : (btn.style.backgroundColor = "Red");
+      });
+    </script>
+-->
+
+    <!--- <h1 id="result">0</h1>
+
+    <button id="add">add</button> <button id="subtract">subtract</button
+    ><button id="reset">reset</button>
+
+    <script>
+      let counter = 0;
+      let result = document.getElementById("result");
+      let add = document.getElementById("add");
+      let subtract = document.getElementById("subtract");
+      let reset = document.getElementById("reset");
+
+      reset.addEventListener("click", () => {
+        result.innerText = counter = 0;
+        if (counter === 0) {
+          result.style.color = "black";
+        }
+      });
+
+      add.addEventListener("click", () => {
+        counter++;
+        if (counter <= 10) {
+          result.innerText = counter;
+        }
+        if (counter > 0) {
+          result.style.color = "green";
+        }
+      });
+
+      subtract.addEventListener("click", () => {
+        counter--;
+        if (counter >= -10) {
+          result.innerText = counter;
+        }
+        if (counter < 0) {
+          result.style.color = "red";
+        }
+        if (counter === 0) {
+          result.style.color = "black";
+        }
+      });
+    </script>
+-->
+
+    <!--- <div id="container"></div>
+    <button id="addPara">Add Paragraph</button>
+
+    <script>
+      let container = document.getElementById("container");
+      let bool = false;
+      let newParag = null;
+      document.getElementById("addPara").addEventListener("click", () => {
+        if (!bool) {
+          newParag = document.createElement("p");
+          newParag.innerText = "I am added using .appendChild()";
+          container.appendChild(newParag);
+          bool = true;
+        } else {
+          newParag.remove();
+          bool = false;
+        }
+      });
+    </script>
+-->
+    <ul id="list"></ul>
+    <button id="addItems">Add 5 Items</button>
+
+    <script>
+      let list = document.getElementById("list");
+      let btn = document.getElementById("addItems");
+
+      btn.addEventListener("click", () => {
+        if (list.children.length < 5) {
+          let newList = document.createElement("li");
+          newList.innerText = `Item ${list.children.length + 1}`;
+          list.appendChild(newList);
+        } else {
+          list.lastElementChild.remove();
+        }
       });
     </script>
   </body>

@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- basic toggle-
+    <p id="greet">Hello World</p>
+    <button id="btn">Change Text</button>
+
+    <script>
+      let text = document.getElementById("greet");
+      let res = document.getElementById("btn");
+
+      res.addEventListener("click", () => {
+        text.innerHTML =
+          text.innerHTML === "Hello World"
+            ? "I love DOM manipulation"
+            : text.innerHTML === "I love DOM manipulation"
+              ? "Hello World"
+              : "I love DOM manipulation";
+      });
+    </script>-->
+
+    <!---<p class="text">This is a paragraph.</p>
+    <button id="highlight">Highlight</button>
+
+    <script>
+      let text = document.querySelector("p");
+      let btn = document.getElementById("highlight");
+      let toggle = false;
+
+      btn.addEventListener("click", () => {
+        if (!toggle) {
+          text.style.color = "Blue";
+          toggle = true;
+        } else {
+          text.style.color = "Black";
+          toggle = false;
+        }
+      });
+    </script>-->
+
+    <!---
+    <button id="toggleBtn">Toggle Color</button>
+    <div id="box" style="width: 100vw; height: 100vh; background: gray">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto modi
+        unde fugiat adipisci maiores, quisquam aliquam tempora recusandae
+        reprehenderit vero quam ad sed in, deleniti incidunt, et eos nostrum
+        voluptatem?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est quos eos
+        quibusdam iusto quas fuga assumenda eius, esse facilis soluta velit
+        dolores, repudiandae omnis, beatae perspiciatis molestias. Voluptate, id
+        laudantium.
+      </p>
+    </div>
+
+    <script>
+      let box = document.getElementById("box");
+      let btn = document.getElementById("toggleBtn");
+      let toggle = false;
+
+      btn.addEventListener("click", () => {
+        if (!toggle) {
+          box.style.backgroundColor = "Green";
+          box.style.color = "White";
+          toggle = true;
+        } else {
+          box.style.backgroundColor = "Gray";
+          box.style.color = "Black";
+          toggle = false;
+        }
+      });
+    </script> -->
+
+    <!--- <p id="info">This is hidden content.</p>
+    <button id="showBtn">Show</button>
+
+    <script>
+      let info = document.getElementById("info");
+      let btn = document.getElementById("showBtn");
+      let toggle = false;
+
+      btn.addEventListener("click", () => {
+        !toggle
+          ? ((info.style.display = "none"),
+            (toggle = true),
+            (btn.innerHTML = "hide"))
+          : ((info.style.display = "block"),
+            (toggle = false),
+            (btn.innerHTML = "show"));
+      });
+    </script>-->
+
+    <!--- <div
+      id="container"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      <button id="btn">Add Paragraph</button>
+    </div>
+
+    <script>
+      let container = document.getElementById("container");
+      let btn = document.getElementById("btn");
+      let count = 1;
+      btn.addEventListener("click", () => {
+        let wrapper = document.createElement("div");
+
+        wrapper.style.display = "flex";
+        wrapper.style.justifyContent = "center";
+        wrapper.style.alignItems = "center";
+
+        let newList = document.createElement("p");
+        let newbtn = document.createElement("button");
+        newList.innerHTML = `I love programming ${count++}`;
+        newbtn.innerHTML = "Delete";
+        newbtn.style.height = "20px";
+        newbtn.style.marginLeft = "10px";
+
+        newbtn.addEventListener("click", () => {
+          newList.remove();
+          newbtn.remove();
+          count = count - 1;
+        });
+
+        wrapper.append(newList, newbtn);
+        container.append(wrapper);
+      });
+    </script>
+-->
+
+    <!---toggle within an array-
+<div class="card">
+      <h2>Title</h2>
+      <p>Description here</p>
+    </div>
+    <button id="btn">Change Description</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let colors = ["red", "green", "blue", "yellow"];
+      let index = 0;
+      btn.addEventListener("click", () => {
+        let change = document.querySelector(".card p");
+        change.innerHTML = "Change text";
+
+        change.style.color = colors[index];
+        index++;
+
+        if (index >= colors.length) {
+          index = 0;
+        }
+      });
+    </script>-->
+
+    <!--- query selector all using for loop 
+   <ul id="container">
+      <li class="item">Item 1</li>
+      <li class="item">Item 2</li>
+      <li class="item">Item 3</li>
+      <li class="item">Item 4</li>
+    </ul>
+    <button id="btn">Highlight Even</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let container = document.getElementById("container");
+      let counter = 0;
+
+      btn.addEventListener("click", () => {
+        let items = document.querySelectorAll(".item");
+        for (let i = 1; i <= container.children.length; i++) {
+          if ((i + 1) % 2 === 0) {
+            items[i].style.color = "red";
+          } else {
+            items[i].style.color = "black";
+          }
+        }
+      });
+    </script>-->
+
+    <!--
+    <button id="save">Save</button>
+    <button>Delete</button>
+    <button>Update</button>
+
+    <script>
+      let submit = document.getElementById("save");
+
+      submit.addEventListener("click", () => {
+        let btn = document.querySelectorAll("button");
+        for (let i = 0; i <= btn.length; i++) {
+          btn[i].style.backgroundColor = "green";
+        }
+      });
+    </script>
+-->
+    <!---setattribute--
+    <button id="button1">Save</button>
+    <button>Delete</button>
+    <button>Update</button>
+
+    <script>
+      let btn = document.querySelectorAll("button");
+      let btn1 = document.getElementById("button1");
+
+      btn1.addEventListener("click", () => {
+        for (let i = 0; i <= btn.length; i++) {
+          btn[1].setAttribute("disabled", "true");
+        }
+        document.getElementById("button2").innerHTML = "Change";
+      });
+    </script>-->
+
+    <!---set attribute practice and query selector
+    <label for="name">Name:</label>
+    <input type="text" name="" id="name" />
+    <label for="pass">Password:</label>
+    <input type="password" name="" id="pass" />
+
+    <button>Log In</button>
+
+    <script>
+      let btn = document.querySelector("button");
+      let counter = 1;
+      btn.addEventListener("click", () => {
+        if (counter > 2) {
+          btn.setAttribute("disabled", "true");
+        }
+        counter++;
+      });
+    </script>-->
+
+    <!---
+    <img id="product" src="../esigdrex.jpg" width="200px" height="200px" />
+    <button id="change">Next</button>
+
+    <script>
+      let btn = document.getElementById("change");
+      let toggle = false;
+
+      btn.addEventListener("click", () => {
+        let img = document.querySelector("img");
+        if (!toggle) {
+          img.setAttribute("src", "../BEBOT PICTORIAL PICTS/IMG_7650.JPG");
+          img.setAttribute("width", "200px");
+          toggle = true;
+        } else {
+          img.setAttribute("src", "../esigdrex.jpg");
+          img.setAttribute("width", "200px");
+          toggle = false;
+        }
+      });
+    </script>-->
+
+    <!---
+    <button id="btn">Click Me</button>
+    <script>
+      let counter = 1;
+      let btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        document.querySelector("button");
+        let ul = document.createElement("ul");
+        if (counter <= 5) {
+          let list = document.createElement("li");
+          list.innerHTML = `I am a list number ${counter}`;
+          ul.append(list);
+          document.body.append(ul);
+          counter++;
+        
+      });
+    -->
+
+    <!--<div id="Anime">
+      <p >Bleach</p>
+      <p>One pieace</p>
+      <p>Nanatzu Taizai</p>
+      <p>Overflow</p>
+      <p>Attack on Titan</p>
+      </div>
+
+      <script>
+        let parent = document.getElementById('Anime')
+        let newAnime = document.createElement('p')
+        newAnime.innerHTML = "Demon Slayer"
+        let refItem = parent.children[0]
+
+        parent.insertBefore(newAnime,refItem)
+
+      
+      
+      </script>-->
+
+    <!--<input type="number" id="num" /> <br />
+    <textarea name="txt" id="res"></textarea><br />
+    <button id="btn">Click Me</button>
+    <button id="btn1">Click Me Again</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let num = document.getElementById("num");
+      let res = document.getElementById("res");
+      let counter = 1;
+      let btn1 = document.getElementById("btn1");
+
+      btn.addEventListener("click", () => {
+        if (counter < 5) {
+          if (num.value.length === 0) {
+            res.innerText = "No Input";
+          } else {
+            res.innerText =
+              parseInt(num.value) % 2 === 0
+                ? `${num.value} is Even`
+                : `${num.value} is Odd`;
+          }
+        } else {
+          btn.setAttribute("disabled", true);
+        }
+        counter++;
+      });
+
+      btn1.addEventListener("click", () => {
+        btn.removeAttribute("disabled");
+
+        if (counter < 5) {
+          if (num.value.length === 0) {
+            res.innerText = "No Input";
+          } else {
+            res.innerText =
+              parseInt(num.value) % 2 === 0
+                ? `${num.value} is Even`
+                : `${num.value} is Odd`;
+          }
+        }
+        counter = 0;
+      });
+    </script>
+  -->
+
+    <!--- <h2>Mini Bank System</h2>
+
+    <input type="number" id="amount" placeholder="Enter amount" />
+
+    <button id="deposit">Deposit</button>
+    <button id="withdraw">Withdraw</button>
+    <button id="reset">Reset</button>
+
+    <h3>Balance: <span id="balance">0</span></h3>
+
+    <div id="history"></div>
+
+    <script>
+      let amount = document.getElementById("amount");
+      let deposit = document.getElementById("deposit");
+      let withdraw = document.getElementById("withdraw");
+      let reset = document.getElementById("reset");
+      let balance1 = document.getElementById("balance");
+      let balance2 = Number(balance1.innerText);
+      let history = document.getElementById("history");
+
+      deposit.addEventListener("click", () => {
+        if (amount.value.length === 0) {
+          history.innerHTML = "No Input";
+        } else {
+          balance1.innerHTML = parseInt(amount.value) + balance2;
+          balance2 = parseInt(amount.value) + balance2;
+          let newParag = document.createElement("p");
+          newParag.innerHTML = `Deposited ${amount.value}`;
+          newParag.style.color = "green";
+          history.append(newParag);
+        }
+      });
+
+      withdraw.addEventListener("click", () => {
+        if (amount.value > balance2) {
+          history.innerHTML = "Insufficient Amount";
+          history.style.color = "red";
+        } else {
+          balance1.innerHTML = balance2 - parseInt(amount.value);
+          balance2 = balance2 - parseInt(amount.value);
+          history.innerHTML = `Withdrew ${amount.value}`;
+          history.style.color = "blue";
+        }
+      });
+
+      let allbtn = document.querySelectorAll("button");
+      let counter = 0;
+
+      for (let i = 0; i < allbtn.length; i++) {
+        allbtn[i].addEventListener("click", () => {
+          counter++;
+
+          if (counter > 5) {
+            for (let j = 0; j < allbtn.length; j++) {
+              allbtn[j].setAttribute("disabled", true);
+              let newpp = document.createElement("p");
+              newpp.innerHTML = "No transaction left";
+              history.append(newpp);
+            }
+          }
+        });
+      }
+    </script>
+
+
+  -->
+    <h2>Student Grade Processor</h2>
+
+    <input type="number" id="gradeInput" placeholder="Enter grade" />
+    <button onclick="addGrade()">Add Grade</button>
+    <button onclick="showAll()">Show All</button>
+    <button onclick="showPassing()">Show Passing</button>
+    <button onclick="showAverage()">Show Average</button>
+    <button onclick="showCurved()">Show Curved Grades</button>
+    <button onclick="reset()">Reset</button>
+
+    <ul id="output"></ul>
+
+    <script>
+      let grades = [];
+
+      function addGrade() {
+        let grade = document.getElementById("gradeInput");
+        grades.push(Number(grade.value));
+        grade.value = "";
+      }
+      function showAll() {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+        grades.forEach((g) => {
+          output.innerHTML += `<li> ${g} </li>`;
+        });
+      }
+      function showPassing() {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+        let passed = grades.filter((value) => value > 75);
+        passed.forEach((g) => {
+          output.innerHTML += `<li>${g}</li>`;
+        });
+      }
+      let showAverage = () => {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+        let total = grades.reduce((acc, curr) => acc + curr, 0);
+        let average = total / grades.length;
+        output.innerHTML = `The average is ${average.toFixed(2)}`;
+      };
+      let showCurved = () => {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+        let curved = grades.map((value) => value * 1.1);
+        curved.forEach((value) => {
+          output.innerHTML = `${value}`;
+        });
+      };
+
+      let reset = () => {
+        grades = [];
+        output.innerHTML = "";
+      };
+    </script>
+  </body>
+</html>

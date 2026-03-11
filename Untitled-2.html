@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    aPPEND TEXT
+    <button id="btn">Click Me</button>
+    <script>
+      let counter = 1;
+      let btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        document.querySelector("button");
+        let ul = document.createElement("ul");
+        if (counter <= 5) {
+          let list = document.createElement("li");
+          list.innerHTML = `I am a list number ${counter}`;
+          ul.append(list);
+          document.body.append(ul);
+          counter++;
+        }
+      });
+    </script>
+
+    insertBefore()
+
+    <div id="Anime">
+      <p>Bleach</p>
+      <p>One pieace</p>
+      <p>Nanatzu Taizai</p>
+      <p>Overflow</p>
+      <p>Attack on Titan</p>
+    </div>
+
+    <script>
+      let parent = document.getElementById("Anime");
+      let newAnime = document.createElement("p");
+      newAnime.innerHTML = "Demon Slayer";
+      let refItem = parent.children[0];
+
+      parent.insertBefore(newAnime, refItem);
+    </script>
+
+    removeAttribute
+
+    <input type="number" id="num" /> <br />
+    <textarea name="txt" id="res"></textarea><br />
+    <button id="btn">Click Me</button>
+    <button id="btn1">Click Me Again</button>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let num = document.getElementById("num");
+      let res = document.getElementById("res");
+      let counter = 1;
+      let btn1 = document.getElementById("btn1");
+
+      btn.addEventListener("click", () => {
+        if (counter < 5) {
+          if (num.value.length === 0) {
+            res.innerText = "No Input";
+          } else {
+            res.innerText =
+              parseInt(num.value) % 2 === 0
+                ? `${num.value} is Even`
+                : `${num.value} is Odd`;
+          }
+        } else {
+          btn.setAttribute("disabled", true);
+        }
+        counter++;
+      });
+
+      btn1.addEventListener("click", () => {
+        btn.removeAttribute("disabled");
+
+        if (counter < 5) {
+          if (num.value.length === 0) {
+            res.innerText = "No Input";
+          } else {
+            res.innerText =
+              parseInt(num.value) % 2 === 0
+                ? `${num.value} is Even`
+                : `${num.value} is Odd`;
+          }
+        }
+        counter = 0;
+      });
+    </script>
+  </body>
+</html>

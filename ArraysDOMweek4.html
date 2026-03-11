@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Student Grade Processor</h2>
+
+    <input type="number" id="gradeInput" placeholder="Enter grade" />
+    <button onclick="addGrade()">Add Grade</button>
+    <button onclick="showAll()">Show All</button>
+    <button onclick="showPassing()">Show Passing</button>
+    <button onclick="showAverage()">Show Average</button>
+    <button onclick="showCurved()">Show Curved Grades</button>
+
+    <ul id="output"></ul>
+
+    <script>
+      let grades = [];
+      let output = document.getElementById("output");
+      let addGrade = () => {
+        let grade = Number(document.getElementById("gradeInput").value);
+        output.innerHTML = "";
+        grades.push(grade);
+        document.getElementById("gradeInput").value = "";
+      };
+
+      let showAll = () => {
+        output.innerHTML = grades.map((g) => `<li>${g}</li>`).join("");
+      };
+      let showPassing = () => {
+        output.innerHTML = grades
+          .filter((g) => g >= 75)
+          .map((g) => `<li>${g}</li>`)
+          .join("");
+      };
+      let showAverage = () => {
+        output.innerHTML = "";
+        if (grades.length === 0) {
+          output.innerHTML = "No grades available";
+          return;
+        }
+
+        let sum = grades.reduce((acc, curr) => acc + curr, 0);
+        let average = sum / grades.length;
+
+        output.innerHTML = average.toFixed(2);
+      };
+
+      let showCurved = () => {
+        output.innerHTML = grades
+          .map((g) => (g * 1.1).toFixed(2))
+          .map((g) => `<li> ${g} </li>`)
+          .join("");
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+query selector all using for loop
+
+<ul id="container">
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+  <li class="item">Item 3</li>
+  <li class="item">Item 4</li>
+</ul>
+<button id="btn">Highlight Even</button>
+
+<script>
+  let btn = document.getElementById("btn");
+  let container = document.getElementById("container");
+  let counter = 0;
+
+  btn.addEventListener("click", () => {
+    let items = document.querySelectorAll(".item");
+    for (let i = 1; i <= container.children.length; i++) {
+      if ((i + 1) % 2 === 0) {
+        items[i].style.color = "red";
+      } else {
+        items[i].style.color = "black";
+      }
+    }
+  });
+</script>
+
+Set attribute
+<label for="name">Name:</label>
+<input type="text" name="" id="name" />
+<label for="pass">Password:</label>
+<input type="password" name="" id="pass" />
+
+<button>Log In</button>
+
+<script>
+  let btn = document.querySelector("button");
+  let counter = 1;
+  btn.addEventListener("click", () => {
+    if (counter > 2) {
+      btn.setAttribute("disabled", "true");
+    }
+    counter++;
+  });
+</script>
+
+<img id="product" src="../esigdrex.jpg" width="200px" height="200px" />
+<button id="change">Next</button>
+
+<script>
+  let btn = document.getElementById("change");
+  let toggle = false;
+
+  btn.addEventListener("click", () => {
+    let img = document.querySelector("img");
+    if (!toggle) {
+      img.setAttribute("src", "../BEBOT PICTORIAL PICTS/IMG_7650.JPG");
+      img.setAttribute("width", "200px");
+      toggle = true;
+    } else {
+      img.setAttribute("src", "../esigdrex.jpg");
+      img.setAttribute("width", "200px");
+      toggle = false;
+    }
+  });
+</script>
