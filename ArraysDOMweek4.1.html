@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!---
+    <input id="fruitInput" placeholder="Enter fruit" />
+    <button onclick="addFruit()">Add</button>
+    <button onclick="showFruits()">Show Fruits</button>
+
+    <ul id="output"></ul>
+
+    <script>
+      let fruits = [];
+      let output = document.getElementById("output");
+
+      let addFruit = () => {
+        let fruit = document.getElementById("fruitInput").value;
+        fruits.push(fruit);
+        document.getElementById("fruitInput").value = " ";
+      };
+
+      let showFruits = () => {
+        output.innerHTML = "";
+        fruits.forEach((element) => {
+          output.innerHTML += `<li> ${element.toString()} </li>`;
+        });
+      };
+    </script>
+
+-->
+
+    <!--lONG WORDS FILTER PRACTICE-
+    <button id="show">Show</button>
+    <ul id="output"></ul>
+    <script>
+      let output = document.getElementById("output");
+      let btn = document.getElementById("show");
+      let prices = [100, 200, 1200, 1201, 300, 1000];
+
+      btn.addEventListener("click", () => {
+        output.innerHTML = prices
+          .slice()
+          .sort((a, b) => a - b)
+          .slice(0, 1)
+          .map((g) => `<li> ${g} </g>`);
+      });
+    </script> -->
+
+    <h2>Student Management System</h2>
+
+    <input id="nameInput" placeholder="Student name" />
+    <input id="gradeInput" type="number" placeholder="Grade" />
+
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="showStudents()">Show All</button>
+    <button onclick="showPassing()">Passing Students</button>
+    <button onclick="showAverage()">Average Grade</button>
+    <button onclick="showHighest()">Highest Grade</button>
+    <button onclick="searchStudent()">Search Student</button>
+    <button onclick="clearStudents()">Clear All</button>
+
+    <br /><br />
+
+    <input id="searchInput" placeholder="Search name" />
+
+    <ul id="output"></ul>
+
+    <script>
+      let output = document.getElementById("output");
+      let students = [];
+
+      let addStudent = () => {
+        let names = document.getElementById("nameInput").value;
+        let grades = Number(document.getElementById("gradeInput").value);
+        let student = { name: names, grade: grades };
+        students.push(student);
+        document.getElementById("nameInput").value = "";
+        document.getElementById("gradeInput").value = "";
+      };
+
+      let showStudents = () => {
+        output.innerHTML = "";
+        students.forEach((g) => {
+          output.innerHTML += `<li> ${g.name} : ${g.grade} </li>`;
+        });
+      };
+
+      let showPassing = () => {
+        output.innerHTML = students
+          .filter((g) => g.grade > 75)
+          .map((student) => `<li> ${student.name} : ${student.grade} </li>`)
+          .join("");
+      };
+
+      let showAverage = () => {
+        output.innerHTML = "";
+        let total = students.reduce((acc, curr) => acc + curr.grade, 0);
+        let average = total / students.length;
+        output.innerHTML = `${average}`;
+      };
+
+      let showHighest = () => {
+        output.innerHTML = students
+          .map((student) => student.grade)
+          .slice()
+          .sort((a, b) => b - a)
+          .slice(0, 1)
+          .map((g) => `<li> ${g} </li>`)
+          .join("");
+      };
+
+      let searchStudent = () => {
+        let searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        output.innerHTML = students
+          .filter((student) => student.name.toLowerCase().includes(searchInput))
+          .map((student) => `<li>${student.name} - ${student.grade}</li>`)
+          .join("");
+      };
+    </script>
+  </body>
+</html>

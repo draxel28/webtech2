@@ -20,11 +20,16 @@
     <script>
       let grades = [];
       let output = document.getElementById("output");
+
       let addGrade = () => {
         let grade = Number(document.getElementById("gradeInput").value);
-        output.innerHTML = "";
-        grades.push(grade);
-        document.getElementById("gradeInput").value = "";
+        if (grade === 0) {
+          output.innerHTML = "No value";
+        } else {
+          output.innerHTML = "";
+          grades.push(grade);
+          document.getElementById("gradeInput").value = "";
+        }
       };
 
       let showAll = () => {
@@ -50,10 +55,16 @@
       };
 
       let showCurved = () => {
-        output.innerHTML = grades
+        let Curved = grades
           .map((g) => (g * 1.1).toFixed(2))
           .map((g) => `<li> ${g} </li>`)
           .join("");
+
+        if (Curved > 100) {
+          output.innerHTML = "exceeded";
+        } else {
+          output.innerHTML = `${Curved}`;
+        }
       };
     </script>
   </body>
