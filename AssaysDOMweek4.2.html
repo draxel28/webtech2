@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Student List</h2>
+
+    <input type="text" id="nameInput" placeholder="Student Name" />
+    <input type="number" id="gradeInput" placeholder="Student Grade" />
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search Student"
+      oninput="search()"
+    />
+
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="showAll()">Show All</button>
+    <button onclick="showPassing()">Passing Students</button>
+    <button onclick="seach()">Search Student</button>
+
+    <ul id="output"></ul>
+
+    <script>
+      let output = document.getElementById("output");
+      let students = [
+        { name: "Drexel", grade: 85 },
+        { name: "Anna", grade: 72 },
+        { name: "Mark", grade: 91 },
+        { name: "John", grade: 78 },
+        { name: "Maria", grade: 88 },
+      ];
+
+      let addStudent = () => {
+        let name = document.getElementById("nameInput").value;
+        let grade = Number(document.getElementById("gradeInput").value);
+        let student = { name: name, grade: grade };
+
+        name === "" ? (output.innerHTML = "No value") : students.push(student);
+        document.getElementById("nameInput").value = "";
+        document.getElementById("gradeInput").value = "";
+      };
+
+      let showAll = () => {
+        output.innerHTML = "";
+        students.forEach((g) => {
+          output.innerHTML += `<li> ${g.name} - ${g.grade} </li>`;
+        });
+      };
+
+      let showPassing = () => {
+        output.innerHTML = "";
+        students
+          .filter((g) => g.grade > 75)
+          .forEach((g) => {
+            output.innerHTML += `<li> ${g.name} - ${g.grade} </li>`;
+          });
+      };
+
+      let search = () => {
+        let searchItem = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        output.innerHTML = students
+          .filter((student) => student.name.toLowerCase().includes(searchItem))
+          .map((student) => `<li> ${student.name} : ${student.grade}`)
+          .join("");
+
+        if (searchItem === "") {
+          output.innerHTML = "";
+        }
+      };
+    </script>
+  </body>
+</html>
